@@ -37,6 +37,10 @@ type ImageOptions struct {
 	//
 	// Values supported between 1 and 100. Default is 94
 	Quality int
+	// JavaescriptDelay determines the final image quality.
+	//
+	// Values supported between 1 and 100. Default is 94
+	Quality int
 	// Html is a string of html to render into and image.
 	//
 	// Only needed to be set if Input is set to "-"
@@ -106,6 +110,11 @@ func buildParams(options *ImageOptions) ([]string, error) {
 	if options.Quality != 0 {
 		a = append(a, "--quality")
 		a = append(a, strconv.Itoa(options.Quality))
+	}
+
+	if options.JavascriptDelay != 0 {
+		a = append(a, "--javascript-delay")
+		a = append(a, strconv.Itoa(options.JavascriptDelay))
 	}
 
 	// url and output come last
