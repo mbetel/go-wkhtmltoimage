@@ -37,10 +37,10 @@ type ImageOptions struct {
 	//
 	// Values supported between 1 and 100. Default is 94
 	Quality int
-	// JavaescriptDelay determines the final image quality.
+	// JavascriptDelay determines the final image quality.
 	//
-	// Values supported between 1 and 100. Default is 94
-	Quality int
+	// Value in microseconds
+	JavascriptDelay int
 	// Html is a string of html to render into and image.
 	//
 	// Only needed to be set if Input is set to "-"
