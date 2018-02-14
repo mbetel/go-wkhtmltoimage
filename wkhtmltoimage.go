@@ -36,6 +36,12 @@ type ImageOptions struct {
 	// Quality determines the final image quality.
 	//
 	// Values supported between 1 and 100. Default is 94
+
+	CropHeight int
+	CropWidth int
+	CropX int
+	CropY int
+
 	Quality int
 	// JavascriptDelay determines the final image quality.
 	//
@@ -115,6 +121,23 @@ func buildParams(options *ImageOptions) ([]string, error) {
 	if options.JavascriptDelay != 0 {
 		a = append(a, "--javascript-delay")
 		a = append(a, strconv.Itoa(options.JavascriptDelay))
+	}
+
+	if options.CropHeight != 0 {
+		a = append(a, "--crop-h")
+		a = append(a, strconv.Itoa(options.CropHeight))
+	}
+	if options.CropWidth != 0 {
+		a = append(a, "--crop-w")
+		a = append(a, strconv.Itoa(options.CropWidth))
+	}
+	if options.CropX != 0 {
+		a = append(a, "--crop-x")
+		a = append(a, strconv.Itoa(options.CropX))
+	}
+	if options.CropY != 0 {
+		a = append(a, "--crop-y")
+		a = append(a, strconv.Itoa(options.CropY))
 	}
 
 	// url and output come last
